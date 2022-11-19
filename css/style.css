@@ -211,8 +211,8 @@ font-family: 'Poppins', sans-serif;
   /* Darken */
   --ltn__primary-color-3: #133236;
   /* Lighten */
-  --ltn__secondary-color: #330000;
-  --ltn__secondary-color-2: #cb3421;
+  --ltn__secondary-color: #996633;
+  --ltn__secondary-color-2: #330000;
   /* Darken */
   --ltn__secondary-color-3: #fb412a;
   /* Lighten */
@@ -1469,7 +1469,7 @@ ul {
   box-shadow: var(--ltn__box-shadow-2); }
   .slick-arrow-3 .slick-arrow:hover {
     background-color: var(--ltn__secondary-color);
-    border-color: var(--border-color-4);
+    /* border-color: var(--border-color-4); */
     color: var(--white) !important; }
 
 .slick-arrow-3 .slick-next {
@@ -1480,7 +1480,7 @@ ul {
 
 .slick-arrow-3 .slick-prev {
   background-color: var(--ltn__secondary-color);
-  border-color: var(--border-color-4);
+  /* border-color: var(--border-color-4); */
   color: var(--white) !important; }
 
 /* slick-arrow-4 */
@@ -8951,13 +8951,13 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   box-shadow: var(--ltn__box-shadow-4);
   border-radius: 10px;
   margin-bottom: 50px; }
-  .ltn__category-item-5 a {
+  .ltn__category-item-5 div {
     padding: 40px 30px 35px;
     display: block;
     position: relative; }
-    .ltn__category-item-5 a span {
+    .ltn__category-item-5 div span {
       display: block; }
-    .ltn__category-item-5 a .category-icon {
+    .ltn__category-item-5 div .category-icon {
       width: 100px;
       height: 100px;
       line-height: 115px;
@@ -8967,7 +8967,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
       color: var(--ltn__secondary-color);
       text-align: center;
       margin-bottom: 20px; }
-    .ltn__category-item-5 a .category-title {
+    .ltn__category-item-5 div .category-title {
       font-size: 22px;
       font-weight: 600;
       font-family: var(--ltn__heading-font);
@@ -8976,7 +8976,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
       -o-transition: all 0.3s ease 0s;
       transition: all 0.3s ease 0s;
       margin-bottom: 10px; }
-    .ltn__category-item-5 a .category-btn {
+    .ltn__category-item-5 div .category-btn {
       width: 45px;
       height: 45px;
       line-height: 50px;
@@ -9033,14 +9033,14 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     color: var(--white); }
 
 @media (max-width: 1200px) {
-  .ltn__category-item-5 a {
+  .ltn__category-item-5 div {
     padding: 40px 20px 35px; }
-    .ltn__category-item-5 a .category-icon {
+    .ltn__category-item-5 div .category-icon {
       width: 80px;
       height: 80px;
       line-height: 90px;
       font-size: 30px; }
-    .ltn__category-item-5 a .category-title {
+    .ltn__category-item-5 div .category-title {
       font-size: 18px; } }
 
 @media (max-width: 767px) {
@@ -9048,14 +9048,14 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     display: none; }
   .ltn__category-item-3 {
     padding: 30px 0 5px; }
-  .ltn__category-item-5 a {
+  .ltn__category-item-5 div {
     padding: 40px 15px 35px; }
-    .ltn__category-item-5 a .category-icon {
+    .ltn__category-item-5 div .category-icon {
       width: 60px;
       height: 60px;
       line-height: 70px;
       font-size: 25px; }
-    .ltn__category-item-5 a .category-title {
+    .ltn__category-item-5 div .category-title {
       font-size: 13px; } }
 
 /* ----------------------------------------------------
