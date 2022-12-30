@@ -17,5 +17,8 @@ class RoomPageView(TemplateView):
 class BlogPageView(TemplateView):
 	template_name="mainapp/blog.html"
 
+class BlogDetailPageView(TemplateView):
+	template_name="mainapp/blog-details.html"
+
 
 
