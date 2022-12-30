@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,8 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$j_7(1$@%m-9c%lvkipnukk6=fx+ucavv6jy=d$fepklxun&h6'
-
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='django-insecure-ze#orz@61tav545j33$^sv#j4ke3h*yye%)l7=fr2p^@lkuyw%')
+DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -115,7 +117,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATICFILES_DIRS =[os.path.join(BASE_DIR, 'static'),]
+STATIC_ROOT = os.path.join(BASE_DIR / "staticfiles")
+STATIC_URL='/static/'
+MEDIA_URL='/media/'
+MEDIA_ROOT= os.path.join( BASE_DIR/'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
