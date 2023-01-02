@@ -29,6 +29,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# CKEditor Settings
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' 
+
+CKEDITOR_CONFIGS = {
+    'default':
+        {
+            'toolbar': 'full',
+            'width': 'auto',
+            'extraPlugins': ','.join([
+                'codesnippet',
+            ]),
+        },
+}
+
+
 
 # Application definition
 
@@ -43,6 +60,7 @@ INSTALLED_APPS = [
     # my apps
     "mainapp.apps.MainappConfig",
     'accounts.apps.AccountsConfig',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -116,6 +134,16 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST='lim110.truehost.cloud'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER='nwaforglory6@gmail.com'
+DEFAULT_EMAIL="nwaforglory6@gmail.com"
+EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
 
 
 # Static files (CSS, JavaScript, Images)

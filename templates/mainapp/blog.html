@@ -15,7 +15,7 @@
                         <h1 class="page-title">News Feeds</h1>
                         <div class="ltn__breadcrumb-list">
                             <ul>
-                                <li><a href="index.html"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
+                                <li><a href="/"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
                                 <li>Blog</li>
                             </ul>
                         </div>
@@ -33,10 +33,13 @@
                 <div class="col-lg-8">
                     <div class="ltn__blog-list-wrap">
                         <!-- Blog Item -->
+                        {%for blog in blogs%}
                         <div class="ltn__blog-item ltn__blog-item-5">
+                            {%if blog.blog_img%}
                             <div class="ltn__blog-img">
-                                <a href="blog-details.html"><img src="{% static 'img/blog/31.jpg'%}" alt="Image"></a>
+                                <a href="blog-details.html"><img src="{{blog.blog_img.url}}" alt="Image"></a>
                             </div>
+                            {%endif%}
                             <div class="ltn__blog-brief">
                                 <div class="ltn__blog-meta">
                                     <ul>
@@ -45,145 +48,34 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <h3 class="ltn__blog-title"><a href="blog-details.html">Real estate is property consisting of land and the buildings on it, 
-                                    along with its</a></h3>
+                                <h3 class="ltn__blog-title"><a href="{%url 'blog' blog.slug%}">{{blog.title}}</a></h3>
                                 <div class="ltn__blog-meta">
                                     <ul>
                                         <li class="ltn__blog-date">
-                                            <i class="far fa-calendar-alt"></i>June 22, 2020
+                                            <i class="far fa-calendar-alt"></i>{{blog.date_posted|timesince}} ago
                                         </li>
                                     </ul>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                                <p>{{blog.content|slice:":300"|safe}}</p>
                                 <div class="ltn__blog-meta-btn">
                                     <div class="ltn__blog-meta">
                                         <ul>
                                             <li class="ltn__blog-author">
-                                                <a href="#"><img src="{% static 'img/blog/author.jpg'%}" alt="#">By: Ethan</a>
+                                                <a href="#"><img src="{% static 'img/blog/author.jpg'%}" alt="#">By: {{blog.author.first_name}}</a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="ltn__blog-btn">
-                                        <a href="blog-details.html"><i class="fas fa-arrow-right"></i>Read more</a>
+                                        <a href="{%url 'blog' blog.slug%}"><i class="fas fa-arrow-right"></i>Read more</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {%endfor%}
                         <!-- Blog Item (Video) -->
-                        
-                        <!-- Blog Item (Gallery) -->
-                        <div class="ltn__blog-item ltn__blog-item-5 ltn__blog-item-gallery">
-                            <div class="ltn__blog-gallery-active slick-arrow-1 slick-arrow-1-inner">
-                                <div class="ltn__blog-gallery-item">
-                                    <a href="blog-details.html"><img src="{% static 'img/blog/33.jpg'%}" alt="Image"></a>
-                                </div>
-                            </div>
-                            <div class="ltn__blog-brief">
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-category">
-                                            <a href="#">Business</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h3 class="ltn__blog-title"><a href="blog-details.html">Magna aliqua. Ut enim ad minim venia
-                                    m, quis nostrud exercitation ullamco</a></h3>
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-date">
-                                            <i class="far fa-calendar-alt"></i>June 22, 2020
-                                        </li>
-                                    </ul>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                                <div class="ltn__blog-meta-btn">
-                                    <div class="ltn__blog-meta">
-                                        <ul>
-                                            <li class="ltn__blog-author">
-                                                <a href="#"><img src="{% static 'img/blog/author.jpg'%}" alt="#">By: Ethan</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="ltn__blog-btn">
-                                        <a href="blog-details.html"><i class="fas fa-arrow-right"></i>Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Blog Item (Audio) -->
-                        <div class="ltn__blog-item ltn__blog-item-5 ltn__blog-item-audio">
-                            <div class="post-audio embed-responsive embed-responsive-16by9">
-                                <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/837045328&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                                
-                            </div>
-                            <div class="ltn__blog-brief">
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-category">
-                                            <a href="#">Business</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h3 class="ltn__blog-title"><a href="blog-details.html">Laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor.</a></h3>
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-date">
-                                            <i class="far fa-calendar-alt"></i>June 22, 2020
-                                        </li>
-                                    </ul>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                                <div class="ltn__blog-meta-btn">
-                                    <div class="ltn__blog-meta">
-                                        <ul>
-                                            <li class="ltn__blog-author">
-                                                <a href="#"><img src="{% static 'img/blog/author.jpg'%}" alt="#">By: Ethan</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="ltn__blog-btn">
-                                        <a href="blog-details.html"><i class="fas fa-arrow-right"></i>Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Blog Item (No Image) -->
-                        <div class="ltn__blog-item ltn__blog-item-5 ltn__blog-item-no-image">
-                            <div class="ltn__blog-brief">
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-category">
-                                            <a href="#">Business</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h3 class="ltn__blog-title"><a href="blog-details.html">In reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur.</a></h3>
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-date">
-                                            <i class="far fa-calendar-alt"></i>June 22, 2020
-                                        </li>
-                                    </ul>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                                <div class="ltn__blog-meta-btn">
-                                    <div class="ltn__blog-meta">
-                                        <ul>
-                                            <li class="ltn__blog-author">
-                                                <a href="#"><img src="{% static 'img/blog/author.jpg'%}" alt="#">By: Ethan</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="ltn__blog-btn">
-                                        <a href="blog-details.html"><i class="fas fa-arrow-right"></i>Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+                        
+                        
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="ltn__pagination-area text-center">
@@ -255,78 +147,25 @@
                         <div class="widget ltn__popular-post-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border-2">Leatest Blogs</h4>
                             <ul>
+                                {%for blog in latesblogs%}
                                 <li>
                                     <div class="popular-post-widget-item clearfix">
                                         <div class="popular-post-widget-img">
                                             <a href="blog-details.html"><img src="{% static 'img/team/5.jpg'%}" alt="#"></a>
                                         </div>
                                         <div class="popular-post-widget-brief">
-                                            <h6><a href="blog-details.html">Lorem ipsum dolor sit
-                                                cing elit, sed do.</a></h6>
+                                            <h6><a href="blog-details.html">{{blog.title}}</a></h6>
                                             <div class="ltn__blog-meta">
                                                 <ul>
                                                     <li class="ltn__blog-date">
-                                                        <a href="#"><i class="far fa-calendar-alt"></i>June 22, 2020</a>
+                                                        <a href="#"><i class="far fa-calendar-alt"></i>{{blog.date_posted|timesince}}</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="popular-post-widget-item clearfix">
-                                        <div class="popular-post-widget-img">
-                                            <a href="blog-details.html"><img src="{% static 'img/team/6.jpg'%}" alt="#"></a>
-                                        </div>
-                                        <div class="popular-post-widget-brief">
-                                            <h6><a href="blog-details.html">Lorem ipsum dolor sit
-                                                cing elit, sed do.</a></h6>
-                                            <div class="ltn__blog-meta">
-                                                <ul>
-                                                    <li class="ltn__blog-date">
-                                                        <a href="#"><i class="far fa-calendar-alt"></i>June 22, 2020</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="popular-post-widget-item clearfix">
-                                        <div class="popular-post-widget-img">
-                                            <a href="blog-details.html"><img src="{% static 'img/team/7.jpg'%}" alt="#"></a>
-                                        </div>
-                                        <div class="popular-post-widget-brief">
-                                            <h6><a href="blog-details.html">Lorem ipsum dolor sit
-                                                cing elit, sed do.</a></h6>
-                                            <div class="ltn__blog-meta">
-                                                <ul>
-                                                    <li class="ltn__blog-date">
-                                                        <a href="#"><i class="far fa-calendar-alt"></i>June 22, 2020</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="popular-post-widget-item clearfix">
-                                        <div class="popular-post-widget-img">
-                                            <a href="blog-details.html"><img src="{% static 'img/team/8.jpg'%}" alt="#"></a>
-                                        </div>
-                                        <div class="popular-post-widget-brief">
-                                            <h6><a href="blog-details.html">Lorem ipsum dolor sit
-                                                cing elit, sed do.</a></h6>
-                                            <div class="ltn__blog-meta">
-                                                <ul>
-                                                    <li class="ltn__blog-date">
-                                                        <a href="#"><i class="far fa-calendar-alt"></i>June 22, 2020</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                {%endfor%}
                             </ul>
                         </div>
 
@@ -377,7 +216,6 @@
         </div>
     </div>
     <!-- BLOG AREA END -->
-
 
 {% endblock content%} 
 

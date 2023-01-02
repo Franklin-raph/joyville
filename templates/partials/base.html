@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <!-- Responsive css -->
     <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -35,7 +36,7 @@
                         <div class="col">
                             <div class="site-logo-wrap">
                                 <div class="site-logo">
-                                    <a href="index.html"><img src="{%static 'img/images/JOYVILLE TRANSPARENT(REPLICATED).png'%}" width="30%" alt="Logo"></a>
+                                    <a href="/"><img src="{%static 'img/images/JOYVILLE TRANSPARENT(REPLICATED).png'%}" width="30%" alt="Logo"></a>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +128,7 @@
                             <!-- <p>We help you make the dream of new house a reality</p> -->
                         </div>
                         <div class="btn-wrapper">
-                            <a class="btn btn-effect-3 btn-white" href="contact.html">Contact Us <i class="icon-next"></i></a>
+                            <a class="btn btn-effect-3 btn-white" href="{%url 'contact-us'%}">Contact Us <i class="icon-next"></i></a>
                         </div>
                     </div>
                 </div>
@@ -269,8 +270,8 @@
                             <h4 class="footer-title">Newsletter</h4>
                             <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
                             <div class="footer-newsletter">
-                                <form action="#">
-                                    <input type="email" name="email" placeholder="Email*">
+                                <form id="newsletterform" method="post">
+                                    <input type="email" name="email" placeholder="Email*" id="newsletter">
                                     <div class="btn-wrapper">
                                         <button class="theme-btn-1 btn" type="submit"><i class="fas fa-location-arrow"></i></button>
                                     </div>
@@ -511,6 +512,7 @@
 
     <!-- All JS Plugins -->
     <script src="{%static 'js/plugins.js'%}"></script>
+    <script src="{%static 'js/custom.js'%}"></script>
     <!-- Main JS -->
     <script src="{%static 'js/main.js'%}"></script>
   
