@@ -33,3 +33,18 @@ class Newsletter(models.Model):
 
 	def __str__(self):
 		return self.email
+
+class UpcomingEvent(models.Model):
+	title=models.CharField(max_length=100)
+	subtitle=models.CharField(max_length=100)
+	details=RichTextUploadingField()
+	image=models.ImageField(upload_to="UpcomingEvent")
+	eventpast=models.BooleanField(default=False, null=True)
+	date_posted=models.DateTimeField(auto_now_add=True, null=True)
+
+
+	class Meta:
+		ordering=('-date_posted',)
+
+	def __str__(self):
+		return self.title

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView,DetailView
-from .models import Blog, Newsletter
+from .models import Blog, Newsletter, UpcomingEvent
 from django.core.mail import send_mail, BadHeaderError
 # Create your views here.
 
@@ -11,6 +11,7 @@ class HomePageView(TemplateView):
 	def get_context_data(self, *args, **kwargs):
 		context=super().get_context_data(**kwargs)
 		context["blogs"]=Blog.objects.all()[:10]
+		context['upcomingevents']=UpcomingEvent.objects.filter(eventpast=False)
 		return context
 
 class AboutPageView(TemplateView):
@@ -41,6 +42,7 @@ class BlogDetailPageView(DetailView):
 		context=super().get_context_data(**kwargs)
 		context["blogs"]=Blog.objects.all()[:7]
 		return context
+
 
 def SendContactMail(request):
 	if request.method =="POST" or request.is_ajax:
