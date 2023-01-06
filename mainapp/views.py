@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView,DetailView
 from .models import Blog, Newsletter, UpcomingEvent
 from django.core.mail import send_mail, BadHeaderError
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 class HomePageView(TemplateView):
@@ -48,7 +49,7 @@ class BlogDetailPageView(DetailView):
 		context["blogs"]=Blog.objects.all()[:7]
 		return context
 
-
+@csrf_exempt
 def SendContactMail(request):
 	if request.method =="POST" or request.is_ajax:
 
@@ -65,7 +66,7 @@ def SendContactMail(request):
 		return HttpResponse('invalid header found.')
 
 	return HttpResponse('Sent !! Thank you.')
-
+@csrf_exempt
 def newsletter(request):
 	if request.method =="POST":
 		Newsletter.objects.create(email=request.POST["email"])
