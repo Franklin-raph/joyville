@@ -37,6 +37,7 @@ $("#newsletterform").on("submit",function(e){
         },
         error:function(err){
             console.log(err)
+            alert("Email already a subscriber !")
         }
     })
 })
@@ -65,6 +66,7 @@ $("#contactform").on("submit",function(e){
         },
         error:function(err){
             console.log(err)
+            alert("Network error !")
         }
 
     })
