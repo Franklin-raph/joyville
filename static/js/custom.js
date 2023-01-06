@@ -26,7 +26,7 @@ $("#newsletterform").on("submit",function(e){
     console.log("submitted")
     $.ajax({
         type:"POST",
-        url:"newsletter/",
+        url:"/newsletter/",
         data:{
             "email":$("#newsletter").val()
         },
