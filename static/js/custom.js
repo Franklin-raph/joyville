@@ -1,4 +1,5 @@
-let onetime=document.querySelector("#onetime")
+$("document").ready(function(){
+    let onetime=document.querySelector("#onetime")
 // Get csrf_token cookies
 function getCookie(name) {
     let cookieValue = null;
@@ -53,7 +54,8 @@ $("#contactform").on("submit",function(e){
             "name":$("#formname").val(),
             "subject":$("#formsubject").val(),
             "phone":$("#formphone").val(),
-            "message":$("#formmessage").val()
+            "message":$("#formmessage").val(),
+            
 
         },
         headers: {'X-CSRFToken': getCookie('csrftoken')},
@@ -69,3 +71,5 @@ $("#contactform").on("submit",function(e){
 
 })
 
+
+})
