@@ -23,6 +23,11 @@ class ContactUsPageView(TemplateView):
 class RoomPageView(TemplateView):
 	template_name="mainapp/rooms.html"
 
+	def get_context_data(self, *args, **kwargs):
+		context=super().get_context_data(**kwargs)
+		context['rooms']="rooms"
+		return context
+
 class BlogPageView(ListView):
 	model=Blog
 	template_name="mainapp/blog.html"
