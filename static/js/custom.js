@@ -1,4 +1,5 @@
 $("document").ready(function(){
+    console.log("hbxvhbzhxv")
     let onetime=document.querySelector("#onetime")
 // Get csrf_token cookies
 function getCookie(name) {
@@ -73,5 +74,46 @@ $("#contactform").on("submit",function(e){
 
 })
 
+// room booking email submission function
+
+$("#roombooking").submit(function(e){
+    e.preventDefault();
+    $.ajax({
+        type:"POST",
+        url:"/bookroom/",
+        data:{
+            "firstname":$(".firstname").val(),
+            "lastname":$(".lastname").val(),
+            "arrival":$("#arrival").val(),
+            "depature":$("#depature").val(),
+            "email":$(".email").val(),
+            "PhoneNumber":$("#PhoneNumber").val(),
+            "adults":$("#adults").val(),
+            "childern":$("#childern").val(),
+            "roomPrefrence":$("#roomPrefrence").val(),
+
+        },
+        headers: {'X-CSRFToken': getCookie('csrftoken')},
+        success:function(resp){
+            console.log(resp)
+             $(".booking").html(`<div class="alert alert-success" role="alert">
+              ${resp.msg}
+            </div>`)
+            document.querySelector("#roombooking").reset()
+            $(".booking").fadeOut(20000)
+
+        },
+        error:function(err){
+            $(".booking").html(`<div class="alert alert-danger" role="alert">
+              Room Booking not successful trt again later !!
+            </div>`)
+            $(".booking").fadeOut(20000)
+        }
+    })
+})
+
+
 
 })
+
+

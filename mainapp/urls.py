@@ -10,5 +10,6 @@ path("rooms/", RoomPageView.as_view(), name="rooms"),
 path("blogs/", BlogPageView.as_view(), name="blogs"),
 path("blog/<slug>/", BlogDetailPageView.as_view(), name="blog"),
 path("contactmail/", views.SendContactMail, name="contactmail"),
-path("newsletter/", views.newsletter, name="newsletter")
+path("bookroom/", views.SendBookedRoom2Mail, name="bookroom"),
+path("newsletter/", views.newsletter, name="newsletter"),
 ]

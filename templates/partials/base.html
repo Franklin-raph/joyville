@@ -131,7 +131,7 @@
                         <div class="btn-wrapper">
 
                             {%if rooms%}
-                            <a class="btn btn-effect-3 btn-white" href="{%url 'contact-us'%}">Book a Room <i class="icon-next"></i></a>
+                            <a class="btn btn-effect-3 btn-white" data-bs-toggle="modal" data-bs-target="#exampleModal">Book a Room <i class="icon-next"></i></a>
                             {%else%}
                             <a class="btn btn-effect-3 btn-white" href="{%url 'contact-us'%}">Contact Us <i class="icon-next"></i></a>
                             {%endif%}

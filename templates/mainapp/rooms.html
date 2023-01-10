@@ -10,14 +10,14 @@
     <div class="ltn__slider-area ltn__slider-2--- ltn__slider-6 section-bg-2">
         <div class="ltn__slide-one-active slick-slide-arrow-1 slick-slide-dots-1 arrow-white">
             <!-- ltn__slide-item -->
-            <div class="ltn__slide-item ltn__slide-item-2--- ltn__slide-item-6 text-color-white bg-image bg-overlay-theme-black-60" data-bs-bg="img/slider/14.jpg'%}">
+            <div class="ltn__slide-item ltn__slide-item-2--- ltn__slide-item-6 text-color-white bg-image bg-overlay-theme-black-60" data-bs-bg="{% static 'img/slider/14.jpg'%}">
                 <div class="ltn__slide-item-inner text-center">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 align-self-center">
                                 <div class="slide-item-info">
                                     <div class="slide-item-info-inner ltn__slide-animation">
-                                        <h1 class="slide-title text-uppercase animated ">Find Your Dream <br> House By Us</h1>
+                                        <h1 class="slide-title text-uppercase animated ">Topnotch Hotel with<br> Equisite Beauty of Relaxation</h1>
                                     </div>
                                 </div>
                             </div>
@@ -148,6 +148,90 @@
     </div>
     <!-- FEATURE AREA END -->
 
+<!-- MODAL AREA START (Quick View Modal) -->
+    <div class="ltn__modal-area ltn__quick-view-modal-area">
+        <div class="modal fade" id="exampleModal" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <!-- <i class="fas fa-times"></i> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                         <div class="ltn__quick-view-modal-inner">
+                             <div class="modal-product-item">
+                                <div class="booking"></div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <form action="#" class="ltn__form-box contact-form-box" id="roombooking">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="text" name="firstname" placeholder="First Name" required class="firstname">
+                                                </div>
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="text" name="lastname" placeholder="Last Name" required class="lastname">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="date" class="arrival_date" name="arrival" placeholder="Arrival" required id="arrival">
+                                                </div>
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="date" class="arrival_date" name="dapature" placeholder="Depature" required id="depature">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="email" name="emial" placeholder="Email" required class="email">
+                                                </div>
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="number" class="arrival_date" name="PhoneNumber" placeholder="Phone Number" required id="PhoneNumber">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-12">
+                                                    <select id="adults" name="adults" class="arrival_date" required>
+                                                        <option disabled selected value>Number of Adults</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-6 col-12">
+                                                    <select id="childern" name="childern" class="arrival_date" required>
+                                                        <option disabled selected value>Number of Chilren</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <select id="roomPrefrence" name="roomPrefrence" class="arrival_date" required>
+                                                <option disabled selected value>Room Prefrence</option>
+                                                <option value="basic">Basic Rooms #5,000</option>
+                                                <option value="classic">Classic Rooms #5,000</option>
+                                                <option value="standard">Standard Rooms #10,000</option>
+                                                <option value="deluxe">Deluxe Rooms #15,000</option>
+                                                <option value="exclusive">Exclusive Use of VIP Launge #35,000</option>
+                                            </select>
+                                            <div class="btn-wrapper">
+                                                <button class="theme-btn-1 btn reverse-color btn-block" type="submit">Confirm Booking</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL AREA END -->
 
 {% endblock content%} 
 

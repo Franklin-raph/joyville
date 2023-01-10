@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,  JsonResponse
 from django.views.generic import TemplateView, ListView,DetailView
 from .models import Blog, Newsletter, UpcomingEvent
 from django.core.mail import send_mail, BadHeaderError
@@ -66,6 +66,51 @@ def SendContactMail(request):
 		return HttpResponse('invalid header found.')
 
 	return HttpResponse('Sent !! Thank you.')
+
+@csrf_exempt
+def SendBookedRoom2Mail(request):
+	if request.method =="POST" or request.is_ajax:
+
+		firstname=request.POST["firstname"]
+		print(firstname,"firstname")
+		lastname=request.POST["lastname"]
+		print(lastname,"lastname")
+		arrival=request.POST["arrival"]
+		print(arrival,"arrival")
+		depature=request.POST["depature"]
+		email=request.POST["email"]
+		PhoneNumber=request.POST["PhoneNumber"]
+		adults=request.POST["adults"]
+		childern=request.POST["childern"]
+		roomPrefrence=request.POST["roomPrefrence"]
+		subject="New Room Booking Request"
+
+		message=f'''
+		Dear Joyvile Hotel, 
+
+		{firstname} {lastname} has just booked a room. Details below:
+
+		Name : {firstname} {lastname},
+		Email: {email},
+		Arrival: {arrival},
+		Departure: {depature},
+		PhoneNumber: {PhoneNumber},
+		No of Adults :{adults},
+		No of Children: {childern},
+		Preferred Room: {roomPrefrence},
+
+		'''
+
+
+
+
+	try:
+			send_mail(subject, message, email, ["nwaforglory6@gmail.com"])
+	except BadHeaderError:
+		return HttpResponse('invalid header found.')
+
+	return JsonResponse({"msg": "Room Booked successfully, we'll get back to you within the next 24 hours via your mail. !! Thank you."})
+	
 @csrf_exempt
 def newsletter(request):
 	if request.method =="POST":
