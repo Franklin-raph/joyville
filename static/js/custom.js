@@ -78,6 +78,8 @@ $("#contactform").on("submit",function(e){
 
 $("#roombooking").submit(function(e){
     e.preventDefault();
+    $(".booking").html("")
+    $("#booksubmitbtn").html(`<button class="theme-btn-1 btn reverse-color btn-block" type="submit" disabled>Loading....</button>`)
     $.ajax({
         type:"POST",
         url:"/bookroom/",
@@ -100,14 +102,23 @@ $("#roombooking").submit(function(e){
               ${resp.msg}
             </div>`)
             document.querySelector("#roombooking").reset()
-            $(".booking").fadeOut(20000)
+            $("#booksubmitbtn").html(`<button class="theme-btn-1 btn reverse-color btn-block" type="submit">Confirm Booking</button>`)
+            $(".booking").fadeOut(12222, function(){
+                $(".booking").html("")
+                $(".booking").css("display","block")
+            })
 
         },
         error:function(err){
             $(".booking").html(`<div class="alert alert-danger" role="alert">
               Room Booking not successful trt again later !!
             </div>`)
-            $(".booking").fadeOut(20000)
+            $("#booksubmitbtn").html(`<button class="theme-btn-1 btn reverse-color btn-block" type="submit">Confirm Booking</button>`)
+            $(".booking").fadeOut(12222, function(){
+                $(".booking").html("")
+                $(".booking").css("display","block")
+            })
+
         }
     })
 })
