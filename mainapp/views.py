@@ -49,6 +49,20 @@ class BlogDetailPageView(DetailView):
 		context["blogs"]=Blog.objects.all()[:7]
 		return context
 
+class UpcomingEventDetailPageView(DetailView):
+
+	template_name="mainapp/upcoming-event-detail.html"
+	context_object_name="upcomingevent"
+	model=UpcomingEvent
+
+	def get_context_data(self, *args, **kwargs):
+		context=super().get_context_data(**kwargs)
+		context["blogs"]=Blog.objects.all()[:7]
+		return context
+
+
+
+
 @csrf_exempt
 def SendContactMail(request):
 	if request.method =="POST" or request.is_ajax:
